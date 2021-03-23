@@ -1,0 +1,47 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef> SNo </th>
+        <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="totalCases">
+        <th mat-header-cell *matHeaderCellDef> Total Active Cases </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalCases}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="tch">
+        <th mat-header-cell *matHeaderCellDef> Changes Since YesterDay </th>
+        <td mat-cell *matCellDef="let element"> {{element.tch}} </td>
+        
+      </ng-container>
+      <ng-container matColumnDef="cured">
+        <th mat-header-cell *matHeaderCellDef> Total Cured </th>
+        <td mat-cell *matCellDef="let element"> {{element.cured}} </td>
+      </ng-container>
+   
+      <ng-container matColumnDef="cch">
+        <th mat-header-cell *matHeaderCellDef> Changes Since YesterDay(Cured) </th>
+        <td mat-cell *matCellDef="let element"> {{element.cch}} </td>
+      </ng-container>
+      <ng-container matColumnDef="death">
+        <th mat-header-cell *matHeaderCellDef> Total Death </th>
+        <td mat-cell *matCellDef="let element"> {{element.death}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="dch">
+        <th mat-header-cell *matHeaderCellDef> Changes Since YesterDay(Death)" </th>
+        <td mat-cell *matCellDef="let element"> {{element.dch}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  

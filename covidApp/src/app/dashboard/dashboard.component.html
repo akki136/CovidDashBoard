@@ -1,0 +1,32 @@
+<div  style="margin-top: 5%;">
+ 
+    <app-area-view></app-area-view>
+  </div>
+  <br />
+  <mat-divider></mat-divider>
+  <br />
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="stats-cards">
+    <mat-card fxFlex="33">
+      <app-card label="Total Active Cases" total="{{localstorage.activeCases}}" percentage="{{localstorage.newCase}}" msg=" new Cases"></app-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+      <app-card label="Total Cured" total="{{localstorage.curedCases}}" percentage="{{localstorage.newCured}}" msg=" cured Cases"></app-card>
+    </mat-card>
+
+    <mat-card fxFlex="33">
+      <app-card label="Total Death" total="{{localstorage.totalDeath}}" percentage="{{localstorage.newlDeath}}" msg=" new Deaths"></app-card>
+    </mat-card>
+   
+  </div>
+  <br />
+  <mat-divider></mat-divider>
+  <br />
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="60">
+      <app-table></app-table>
+    </div>
+    <div fxFlex="40">
+      <app-pie-view></app-pie-view>
+    </div>
+  </div>
+  
