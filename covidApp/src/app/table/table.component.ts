@@ -75,6 +75,7 @@ this.dataSource.sort = this.sort;
   if(data.length!=0)
   {
     this.localStorage.sendEvent(data[0]["state"].trim(),'pie');
+    this.localStorage.sendEvent(data[0]["state"].trim(),"area");
   }
   }
 
