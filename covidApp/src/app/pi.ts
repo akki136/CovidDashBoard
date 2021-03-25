@@ -3,4 +3,5 @@ export interface Pi {
   y:number;
   sliced:boolean;
   selected:boolean;
+  seqNo:number;
 }

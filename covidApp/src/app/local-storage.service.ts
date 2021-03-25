@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +8,24 @@ export class LocalStorageService {
   localStorage: Storage;
   isEnabled=true;
   changes$ = new Subject();
-   public activeCases:number;
-   public newCase:number;
-   public newCured:number;
-   public curedCases:number;
-   public newlDeath:number;
-   public totalDeath:number;
+  public state:string;
+  public totalCase=-1;
+   public activeCases=-1;
+   public newCase=-1;
+   public newCured=-1;
+   public curedCases=-1;
+   public newlDeath=-1;
+   public totalDeath=-1;
+   public selected:string;
+   public tableSelected:string;
+  public isScreenLoaded:boolean;
+  public dataBase=new Map();
+
   constructor() {
     this.localStorage   = window.localStorage;
    }
-
+   private subject = new Subject<any>();
+   private updateEvent = new Subject<any>();
    get(key: string): any {
     if (this.isLocalStorageSupported) {
       return JSON.parse(this.localStorage.getItem(key));
@@ -26,6 +34,14 @@ export class LocalStorageService {
     return null;
   }
 
+  sendEvent(value:any,type:string) {
+    this.subject.next({"selection":value,"type":type});
+  }
+  getEvent(): Observable<any>{ 
+    return this.subject.asObservable();
+  }
+  
+  
   get isLocalStorageSupported(): boolean {
     return !!this.localStorage
   }

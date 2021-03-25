@@ -74,9 +74,14 @@ export class CardComponent implements OnInit {
 
   @Input() public label: string;
   @Input() public total: number;
-  @Input() public percentage: number;
+  @Input() public percentage =-1;
   @Input() public msg: string;
-  constructor(private viewService: ViewServiceService,private  localStorage:LocalStorageService) {}
+  @Input() public isUp: boolean;
+
+  constructor(private viewService: ViewServiceService,private  localStorage:LocalStorageService) {
+
+    
+  }
 
   ngOnInit(): void {
     this.viewService.triggerResizeEvent();

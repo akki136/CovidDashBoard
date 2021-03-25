@@ -1,15 +1,13 @@
-<div class="text">
+<div class="text" >
     <h4>{{label}}</h4>
-    <span class="total">{{total}}</span>
-    <span>
-      <mat-icon color="primary">trending_up</mat-icon>
+    <span  *ngIf="total!=-1" class="total">{{total}}</span>
+    <span *ngIf="percentage!=-1"   tooltip="{{msg}}" placement="top" delay="500" >
+      <mat-icon [ngClass]="{'description': isUp=='true', 'red':  isUp!='true'}" >trending_up</mat-icon>
     </span>
-    <span class="description">
+    <span *ngIf="percentage!=-1" [ngClass]="{'description': isUp=='true', 'red':  isUp!='true'}"  tooltip="{{msg}}" placement="top" delay="500"  >
       {{percentage}} 
     </span>
-    <span> {{msg}}</span>
+    
   </div>
-  <div class="widget">
-    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; height: 60px; display: block;"  [(update)]="updateFlag"  [oneToOne]="true"></highcharts-chart>
-  </div>
+
   

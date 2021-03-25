@@ -16,13 +16,14 @@ import { PieViewComponent } from './pie-view/pie-view.component';
 import { CommonModule } from "@angular/common";
 import { HighchartsChartModule } from "highcharts-angular";
 import { AreaViewComponent } from './area-view/area-view.component';
-import { SideBarViewComponent } from './side-bar-view/side-bar-view.component';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
 import { MainComponent } from './main/main.component';
-const pages = [DashboardComponent, MainComponent];
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { TooltipDirective } from './tooltip.directive';
+const pages = [DashboardComponent, MainComponent,MatSortModule,MatInputModule];
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +31,12 @@ const pages = [DashboardComponent, MainComponent];
     LoginComponent,
     PieViewComponent,
     AreaViewComponent,
-    SideBarViewComponent,
     TableComponent,
     DashboardComponent,
     HeaderComponent,
     MainComponent,
-    FooterComponent,
-    CardComponent
+    CardComponent,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,
@@ -48,6 +48,8 @@ const pages = [DashboardComponent, MainComponent];
     FlexLayoutModule,
     HttpClientModule,
     HighchartsChartModule,
+    MatSortModule,
+    MatInputModule,
     CommonModule,
     ToastrModule.forRoot()
   ],

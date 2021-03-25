@@ -1,3 +1,4 @@
+
 <div  style="margin-top: 5%;">
  
     <app-area-view></app-area-view>
@@ -6,15 +7,22 @@
   <mat-divider></mat-divider>
   <br />
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" class="stats-cards">
+
     <mat-card fxFlex="33">
-      <app-card label="Total Active Cases" total="{{localstorage.activeCases}}" percentage="{{localstorage.newCase}}" msg=" new Cases"></app-card>
+      <app-card label="Region" total="{{localstorage.state}}" percentage="-1"  msg="null" isUp="false"></app-card>
     </mat-card>
     <mat-card fxFlex="33">
-      <app-card label="Total Cured" total="{{localstorage.curedCases}}" percentage="{{localstorage.newCured}}" msg=" cured Cases"></app-card>
+      <app-card label="Total Cases" total="{{localstorage.totalCase}}" percentage="-1" msg="null" isUp="false"></app-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+      <app-card label="Total Active Cases" total="{{localstorage.activeCases}}" percentage="{{localstorage.newCase}}" msg=" new Cases" isUp="false"></app-card>
+    </mat-card>
+    <mat-card fxFlex="33">
+      <app-card label="Total Cured" total="{{localstorage.curedCases}}" percentage="{{localstorage.newCured}}" msg=" cured Cases" isUp="true"></app-card>
     </mat-card>
 
     <mat-card fxFlex="33">
-      <app-card label="Total Death" total="{{localstorage.totalDeath}}" percentage="{{localstorage.newlDeath}}" msg=" new Deaths"></app-card>
+      <app-card label="Total Death" total="{{localstorage.totalDeath}}" percentage="{{localstorage.newlDeath}}" msg=" new Deaths" isUp="false"></app-card>
     </mat-card>
    
   </div>
@@ -29,4 +37,3 @@
       <app-pie-view></app-pie-view>
     </div>
   </div>
-  

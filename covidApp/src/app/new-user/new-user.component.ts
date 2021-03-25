@@ -16,6 +16,8 @@ export class NewUserComponent implements OnInit {
 
   public saveUser:FormGroup;
   isEnabled=true;
+   
+
   constructor(   private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,private http: HttpClient,public coviduserApi:CovidUserApiService,

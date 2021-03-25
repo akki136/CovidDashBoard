@@ -55,8 +55,9 @@ email :""
   this.coviduserApi.attemptLogin(loginInfo).subscribe(res =>{
     const stat=res as UserCredentials;
     let out=JSON.stringify(stat);
-    if(res==null)
-    {
+    let err=res["type"];
+    if(res==null||err=="error")
+    { 
       console.error("login failed");
       this.notificationService.showError("Login Failed,Try again","Login");
      
