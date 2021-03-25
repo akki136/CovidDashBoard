@@ -1,9 +1,9 @@
 # CovidDashBoard
 
 This app has User Management with covid dashboard consuming open source Covid Data API for India Only .It uses multiple features like swagger to test api,
-Embeded H2 Database,API level validation,Spring boot Micro services,Stream API an Angular for front-end.
+Embeded H2 Database,API level validation,Spring boot Micro services,Swagger,Stream API an Angular for front-end.
 
-
+I have Added video in support of my app.
 
 Prequisite :-
 
