@@ -82,7 +82,7 @@ public class UserRepositoryDao {
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED)
-	public ResponseEntity<Status> saveUser(UserInfo userInfo)  {
+	public Status saveUser(UserInfo userInfo)  {
 		Status status=new Status();
 		UserEntity deEntity=null;
 		List<UserEntity> deEntityList=null;
@@ -94,7 +94,7 @@ public class UserRepositoryDao {
 		if (deEntityList != null&&!deEntityList.isEmpty()) {
 			status.setHttpStatus(HttpStatus.NOT_ACCEPTABLE);
 			status.setMsg("Account already exist for UserId "+userInfo.getUserName());
-			return new ResponseEntity<>(status, HttpStatus.NOT_ACCEPTABLE);
+			return status;
 		}
 		deEntity=new UserEntity();
 		BeanUtils.copyProperties(userInfo, deEntity);
@@ -103,12 +103,12 @@ public class UserRepositoryDao {
 		try {
 			status.setHttpStatus(HttpStatus.OK);
 			status.setMsg("Account for userId ::"+userInfo.getUserName()+" created ");
-			return new ResponseEntity<>(status, HttpStatus.CREATED);
+			return status;
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			status.setHttpStatus(HttpStatus.NOT_ACCEPTABLE);
 			status.setMsg(e.getMessage());
-			return new ResponseEntity<>(status, HttpStatus.NOT_ACCEPTABLE);
+			return status;
 		}
 	
 		

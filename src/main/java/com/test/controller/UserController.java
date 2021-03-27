@@ -47,11 +47,11 @@ public class UserController {
 	@ApiOperation(value = "Get Account By UserId", response = Iterable.class, tags = "getUserAccountByUserId")
 	@GetMapping("/getUserAccountByUserId/{userId}")
 	public ResponseEntity getUserAccountByUserId(@PathVariable("userId") String userId) {
-		    UserInfo demoTest=userServiceImpl.getAccountByUserId(userId);
+		    UserInfo userInfo=userServiceImpl.getAccountByUserId(userId);
 
-		if (demoTest!=null)
+		if (userInfo!=null)
 		{
-			return new ResponseEntity<>(demoTest, HttpStatus.OK);
+			return new ResponseEntity<>(userInfo, HttpStatus.OK);
 		} else {
 			return new ResponseEntity("Account not Found",HttpStatus.NOT_FOUND);
 		}
@@ -75,7 +75,8 @@ public class UserController {
 	@PostMapping("/AddAccountInfo")
 	public ResponseEntity<Status> addUserAccount(@Valid @RequestBody UserInfo userInfo) {
 		try {
-			return  userServiceImpl.addUser(userInfo);
+			Status status=  userServiceImpl.addUser(userInfo);
+			return new ResponseEntity<>(status, status.getHttpStatus());
 			
 		} catch (Exception e) {
 			Status status=new Status();

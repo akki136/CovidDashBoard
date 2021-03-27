@@ -11,6 +11,9 @@ public class UserInfo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 7964705731163204947L;
+	
+	private Long id;
+	
 	@ApiModelProperty(required = true,dataType = "String")
 	private String name;
 	@ApiModelProperty(required = true,dataType = "String")
@@ -66,6 +69,18 @@ public class UserInfo implements Serializable{
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 	@Override
 	public String toString() {

@@ -44,20 +44,21 @@ public class UserServiceImpl implements UserServiceI{
 
 
 	@Override
-	public  ResponseEntity<Status> addUser(UserInfo demoTest) {
+	public Status addUser(UserInfo demoTest) {
 		String response="";
+		Status status;
 		try {
-			return userRepository.saveUser(demoTest);
+			status= userRepository.saveUser(demoTest);
 		}  catch (Exception e) {
 			logger.error("AddDemoAccount Error::{}",e.getMessage());
 			response=e.getMessage();
-			Status status=new Status();
+			 status=new Status();
 			status.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			status.setMsg(response);
-			return new ResponseEntity<>(status, HttpStatus.INTERNAL_SERVER_ERROR);
+			
 		}
 
-
+		return status;
 
 	}
 

@@ -11,6 +11,6 @@ public interface UserServiceI {
 
 	List<UserInfo> getUserAccountList();
 	 UserInfo getAccountByUserId(String userId);
-	ResponseEntity<Status> addUser(UserInfo userInfo);
+	 Status addUser(UserInfo userInfo);
 	UserInfo loginUser(String userId, String password);
 }
