@@ -17,6 +17,7 @@ export class LocalStorageService {
    public newlDeath=-1;
    public totalDeath=-1;
    public selected:string;
+   public userName:string;
    public tableSelected:string;
   public isScreenLoaded:boolean;
   public dataBase=new Map();

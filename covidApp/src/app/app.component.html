@@ -1,5 +1,7 @@
 <mat-toolbar color="primary" class="app-header">
-  <img src="../assets/covid.png" style="height:100%" alt="Italian Trulli"><div > Covid DashBoard</div>
+  <img src="../assets/covid.png" style="height:100%" alt="Italian Trulli">
+
+  <div > Covid DashBoard</div>
   <span class="nav-tool-items">
     <a mat-button    *ngIf="localstorage.isEnabled"  routerLink="/covidInfo/login" routerLinkActive="active">Log in</a>
     <a mat-button    *ngIf="!localstorage.isEnabled"   (click)="LogOut()">Log Out</a>

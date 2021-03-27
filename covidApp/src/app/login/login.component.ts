@@ -70,6 +70,7 @@ email :""
     else
     {
       console.info("Logged In Successfully");
+      this.localstorage.userName=stat.name;
       this.notificationService.showSuccess("Logged In Successfully","Login");
       this.localstorage.set("loginInfo",loginInfo);
       this.router.navigateByUrl("/covidInfo/dashboard");
